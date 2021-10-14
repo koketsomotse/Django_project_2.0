@@ -6,8 +6,8 @@ from django.http import HttpResponse
 def home(request):
 	return render(request, 'accounts/dashboard.html')
 
-def products(request):
-	return render(request, 'accounts/products.html')
+def tasks(request):
+	return render(request, 'accounts/tasks.html')
 
 def customer(request):
 	return render(request, 'accounts/customer.html')
