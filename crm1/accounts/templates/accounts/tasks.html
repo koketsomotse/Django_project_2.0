@@ -13,9 +13,18 @@
 			<table class="table">
 				<tr>
 					<th>Task Name</th>
-					<th>Tasks Descr</th>
-					<th>Tasks features</th>
+					<th>Task Description</th>
+					<th>Task Features</th>
+					<th>Task Status</th>
 				</tr>
+				{% for i in tasks %}
+				<tr>
+					<td>{{i.taskname}}</td>
+					<td>{{i.taskdescription}}</td>
+					<td>{{i.taskfeatures}}</td>
+					<td>{{i.status}}</td>
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>
