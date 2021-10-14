@@ -18,24 +18,44 @@
 					<th>Customer</th>
 					<th>Ordered Tasks</th>
 				</tr>
+				{% for i in customers %}
+				<tr>
+					<td></td>
+					<td>{{i.fristname}}</td>
+					<td>{{i.cellnumber}}</td>
+
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>
 	</div>
 
 	<div class="col-md-7">
-		<h5>LAST 5 ORDERed TASKS</h5>
+		<h5>LAST 5 OREDED TASKS</h5>
 		<hr>
 		<div class="card card-body">
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
 			<table class="table table-sm">
 				<tr>
 					<th>Tasks</th>
-					<th>Tasks Date</th>
-					<th>Tasks Status</th>
-					<th> Update Tasks</th>
-					<th>Remove Tasks</th>
+					<th>Task Date</th>
+					<th>Task Status</th>
+					<th>Update Task</th>
+					<th>Remove Task</th>
 				</tr>
+
+				{% for b in tasks %}
+				<tr>
+
+					<td>{{b.taskname}}</td>
+					<td>{{b.date_created}}</td>
+					<td>{{b.status}}</td>
+
+					<td><a href="">Update</a></td>
+					<td><a href="">Remove</a></td>
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>

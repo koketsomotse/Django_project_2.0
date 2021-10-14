@@ -3,21 +3,18 @@ from django.db import models
 # Create your models here.
 
 
-class Order(models.Model):
+class Task(models.Model):
+
     STATUS = (
         ('Pending', 'Pending'),
+        ('Out for delivery', 'Out for delivery'),
         ('Delivered', 'Delivered'),
     )
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=200, null=True, choices=STATUS)
-
-
-class Task(models.Model):
     taskname = models.CharField(max_length=200)
     taskdescription = models.CharField(max_length=200)
     taskfeatures = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=200)
+    status = models.CharField(max_length=200, choices=STATUS)
 
     def __str__(self):
         return self.taskname
@@ -37,3 +34,16 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Order(models.Model):
+    STATUS = (
+        ('Pending', 'Pending'),
+        ('Out for delivery', 'Out for delivery'),
+        ('Delivered', 'Delivered'),
+    )
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.CharField(max_length=200, null=True, choices=STATUS)
+    customer = models.ForeignKey(
+        Customer, null=True, on_delete=models.SET_NULL)
+    task = models.ForeignKey(Task, null=True, on_delete=models.SET_NULL)
