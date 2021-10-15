@@ -7,22 +7,21 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Tasks</h5>
+			<h5>Task</h5>
 		</div>
 		<div class="card card-body">
 			<table class="table">
 				<tr>
-					<th>Task Name</th>
-					<th>Task Description</th>
-					<th>Task Features</th>
-					<th>Task Status</th>
+					<th>Task</th>
+					<th>Category</th>
+					<th>Feature</th>
 				</tr>
-				{% for i in tasks %}
+
+				{% for i in products %}
 				<tr>
-					<td>{{i.taskname}}</td>
-					<td>{{i.taskdescription}}</td>
-					<td>{{i.taskfeatures}}</td>
-					<td>{{i.status}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.category}}</td>
+					<td>{{i.feature}}</td>
 				</tr>
 				{% endfor %}
 

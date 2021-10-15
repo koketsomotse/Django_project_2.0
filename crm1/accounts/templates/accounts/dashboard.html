@@ -16,14 +16,14 @@
 				<tr>
 					<th></th>
 					<th>Customer</th>
-					<th>Ordered Tasks</th>
+					<th>Phone</th>
 				</tr>
-				{% for i in customers %}
-				<tr>
-					<td></td>
-					<td>{{i.fristname}}</td>
-					<td>{{i.cellnumber}}</td>
 
+				{% for customer in customers %}
+				<tr>
+					<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
+					<td>{{customer.name}}</td>
+					<td>{{customer.phone}}</td>
 				</tr>
 				{% endfor %}
 
@@ -32,30 +32,31 @@
 	</div>
 
 	<div class="col-md-7">
-		<h5>LAST 5 OREDED TASKS</h5>
+		<h5>LAST 5 ORDERED TASKS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+
 			<table class="table table-sm">
 				<tr>
-					<th>Tasks</th>
-					<th>Task Date</th>
+					<th>Task</th>
+					<th>Date Orderd</th>
 					<th>Task Status</th>
 					<th>Update Task</th>
 					<th>Remove Task</th>
 				</tr>
 
-				{% for b in tasks %}
+				{% for order in orders %}
 				<tr>
+					<td>{{order.product}}</td>
+					<td>{{order.date_created}}</td>
+					<td>{{order.status}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
 
-					<td>{{b.taskname}}</td>
-					<td>{{b.date_created}}</td>
-					<td>{{b.status}}</td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
 
-					<td><a href="">Update</a></td>
-					<td><a href="">Remove</a></td>
 				</tr>
 				{% endfor %}
+
 
 			</table>
 		</div>
